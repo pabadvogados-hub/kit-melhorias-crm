@@ -1,0 +1,38 @@
+{
+  "_como_preencher": "Tudo que esta em branco (null, lista vazia, {} ou 0) fica DE FORA das contas: o painel nao inventa meta, ticket nem comissao. Preencha so o que o escritorio decidiu. Chaves que comecam com _ sao comentario e sao ignoradas. Depois de salvar, a tela ja usa o arquivo novo (nao precisa reiniciar).",
+  "_ajustar": "AJUSTAR: os nomes em quadros_fora_do_funil devem bater com a tabela wa_pipelines do banco (SELECT id, nome FROM wa_pipelines). Os nomes de coluna e de nota de assinatura estao no topo de comercial.py.",
+
+  "metas_mensais": {
+    "_exemplo_AAAA-MM": {
+      "fechados": 10,
+      "por_pessoa_fechados": {
+        "pessoa@exemplo.com.br": 5
+      }
+    }
+  },
+
+  "ticket_medio_por_area": {
+    "_exemplo_AVISO": "Estimativa, nao e valor real: o CRM nao grava o valor do contrato. Use o nome exato do quadro (como aparece no CRM).",
+    "_exemplo_Nome do quadro": 0
+  },
+
+  "comissao_fixa_por_fechamento": {
+    "ativa": false,
+    "valor": null,
+    "por_pessoa": {}
+  },
+
+  "quadros_fora_do_funil": [
+    "CLIENTES ESCRITÓRIO",
+    "CLIENTES DO ESCRITÓRIO",
+    "CONTATOS GERAIS"
+  ],
+
+  "parado_dias_padrao": 7,
+
+  "fechado_conta_etapa": false,
+
+  "feriados": [],
+
+  "marca_ligacao": ""
+}
