@@ -1,0 +1,154 @@
+/* Modulo Processos. Usa as variaveis do index.css (tema escuro azul-marinho + dourado).
+   Prefixo pr- para nao colidir com as telas existentes. Sem emoji. */
+
+.pr-pagina { display: flex; flex-direction: column; gap: 12px; min-height: 0; }
+
+.pr-barra { display: flex; flex-direction: column; gap: 10px; }
+.pr-abas-topo { display: flex; gap: 6px; flex-wrap: wrap; }
+.pr-aba-topo {
+  background: transparent; border: 1px solid var(--border); color: var(--muted);
+  padding: 8px 14px; border-radius: 10px; font-size: 13.5px; font-weight: 600;
+}
+.pr-aba-topo.on { background: rgba(213, 185, 116, 0.14); color: var(--gold-2); border-color: rgba(213, 185, 116, 0.4); }
+
+.pr-filtros { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.pr-filtros input { flex: 1 1 220px; min-width: 0; }
+.pr-filtros select { flex: 0 1 180px; }
+
+.pr-pequeno { font-size: 12.5px; }
+.pr-vazio { padding: 16px 0; text-align: center; }
+.pr-subtitulo { font-size: 14px; font-weight: 700; color: var(--gold-2); margin: 14px 0 8px; }
+.pr-quebra { white-space: pre-wrap; }
+.pr-linha { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.pr-linha select, .pr-linha input { flex: 1 1 160px; }
+.pr-linha-clicavel { cursor: pointer; }
+.pr-linha-clicavel:hover, .pr-linha-clicavel:focus { background: rgba(255, 255, 255, 0.03); outline: none; }
+
+/* ---------- quadro ---------- */
+.pr-board {
+  display: flex; gap: 12px; overflow-x: auto; padding-bottom: 10px;
+  align-items: flex-start; scroll-snap-type: x proximity;
+}
+.pr-coluna {
+  flex: 0 0 240px; min-width: 240px; max-height: calc(100vh - 230px);
+  display: flex; flex-direction: column;
+  background: var(--col-bg); border: 1px solid var(--border); border-radius: 14px;
+  scroll-snap-align: start; transition: border-color .15s, box-shadow .15s;
+}
+.pr-coluna.sobre { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(213, 185, 116, 0.18); }
+.pr-coluna-topo { padding: 12px 12px 8px; border-bottom: 1px solid var(--border-soft); }
+.pr-coluna-grupo { font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--gold-soft); font-weight: 700; }
+.pr-coluna-nome { font-size: 13.5px; font-weight: 700; margin-top: 2px; display: flex; justify-content: space-between; gap: 8px; }
+.pr-contagem {
+  background: rgba(255, 255, 255, 0.06); color: var(--muted); border-radius: 10px;
+  padding: 1px 8px; font-size: 12px; font-weight: 700;
+}
+.pr-coluna-corpo { padding: 10px; display: flex; flex-direction: column; gap: 8px; overflow-y: auto; min-height: 60px; }
+
+.pr-cartao {
+  background: var(--surface-solid); border: 1px solid var(--border); border-radius: 11px;
+  padding: 10px 11px; cursor: grab; box-shadow: var(--shadow);
+}
+.pr-cartao:hover, .pr-cartao:focus { border-color: rgba(213, 185, 116, 0.4); outline: none; }
+.pr-cartao:active { cursor: grabbing; }
+.pr-cartao-num { font-size: 13px; font-weight: 700; word-break: break-all; }
+.pr-cartao-cli { font-size: 13px; color: var(--text); margin-top: 3px; }
+.pr-cartao-rodape { display: flex; justify-content: space-between; align-items: center; gap: 6px; margin-top: 8px; font-size: 11.5px; flex-wrap: wrap; }
+.pr-chip {
+  background: rgba(36, 57, 114, 0.5); color: #9fb8e6; border-radius: 8px;
+  padding: 2px 7px; font-size: 11px; font-weight: 600; max-width: 100%;
+}
+
+/* ---------- lista ---------- */
+.pr-lista-wrap { display: flex; flex-direction: column; gap: 8px; }
+.pr-lista-topo { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.pr-tabela-scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+.pr-tabela { width: 100%; border-collapse: collapse; min-width: 720px; }
+.pr-tabela th, .pr-tabela td { padding: 10px 12px; font-size: 13.5px; border-bottom: 1px solid var(--border-soft); text-align: left; }
+.pr-tabela th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+
+/* ---------- ficha (painel lateral) e formulario em modal ---------- */
+.pr-drawer-fundo {
+  position: fixed; inset: 0; z-index: 60; background: rgba(3, 5, 18, 0.6);
+  display: flex; justify-content: flex-end;
+}
+.pr-drawer {
+  width: min(560px, 100vw); height: 100%; overflow-y: auto; position: relative;
+  background: var(--surface-solid); border-left: 1px solid var(--border);
+  padding: 22px 22px 40px; box-shadow: var(--shadow-lg);
+}
+.pr-modal {
+  margin: auto; width: min(640px, calc(100vw - 32px)); max-height: calc(100vh - 40px); overflow-y: auto;
+  background: var(--surface-solid); border: 1px solid var(--border); border-radius: 18px;
+  padding: 22px; box-shadow: var(--shadow-lg);
+}
+.pr-fechar {
+  position: absolute; top: 16px; right: 16px; background: transparent; border: 1px solid var(--border);
+  color: var(--muted); border-radius: 9px; padding: 5px 10px; font-size: 12.5px;
+}
+.pr-modal .pr-fechar { position: static; }
+.pr-ficha-topo { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding-right: 80px; }
+.pr-modal .pr-ficha-topo { padding-right: 0; }
+.pr-ficha-titulo { font-size: 18px; font-weight: 800; word-break: break-all; }
+.pr-ficha-sub { margin-top: 3px; }
+
+.pr-abas { display: flex; gap: 4px; margin: 16px 0 10px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+.pr-aba {
+  background: transparent; border: none; border-bottom: 2px solid transparent; color: var(--muted);
+  padding: 8px 10px; font-size: 13.5px; font-weight: 600;
+}
+.pr-aba.on { color: var(--gold-2); border-bottom-color: var(--gold); }
+
+.pr-secao { display: flex; flex-direction: column; gap: 14px; }
+.pr-fase-box { background: var(--surface); border: 1px solid var(--border); border-radius: 13px; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; }
+.pr-fase-atual { font-size: 15px; font-weight: 700; color: var(--gold-2); }
+
+.pr-dl { display: grid; grid-template-columns: minmax(110px, 36%) 1fr; gap: 8px 12px; font-size: 13.5px; }
+.pr-dl dt { color: var(--muted); }
+.pr-dl dd { margin: 0; word-break: break-word; }
+
+.pr-caixa { background: var(--surface); border: 1px solid var(--border-soft); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; }
+.pr-caixa-titulo { font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--gold-soft); font-weight: 700; margin-bottom: 4px; }
+
+.pr-acoes { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+
+.pr-form { display: flex; flex-direction: column; gap: 12px; }
+.pr-campo { display: flex; flex-direction: column; gap: 5px; font-size: 12.5px; color: var(--gold); font-weight: 600; }
+.pr-campo input, .pr-campo select, .pr-campo textarea { width: 100%; font-weight: 400; }
+.pr-linha-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.pr-lista { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.pr-lista li {
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  background: var(--surface); border: 1px solid var(--border-soft); border-radius: 12px; padding: 10px 12px;
+  font-size: 13.5px;
+}
+.pr-lista li > div { min-width: 0; word-break: break-word; }
+.pr-hist li { align-items: flex-start; }
+
+/* ---------- clientes ---------- */
+.pr-clientes { display: grid; grid-template-columns: minmax(240px, 340px) 1fr; gap: 16px; align-items: start; }
+.pr-clientes-col { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.pr-busca-cli { flex: 1 1 auto; min-width: 0; }
+.pr-lista-cli { max-height: calc(100vh - 220px); overflow-y: auto; }
+.pr-item-cli {
+  background: var(--surface); border: 1px solid var(--border-soft); border-radius: 12px; padding: 10px 12px; cursor: pointer;
+}
+.pr-item-cli:hover, .pr-item-cli:focus { border-color: rgba(213, 185, 116, 0.4); outline: none; }
+.pr-item-cli.on { border-color: var(--gold); background: rgba(213, 185, 116, 0.08); }
+.pr-clientes-ficha { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px; min-height: 200px; }
+
+/* ---------- celular ---------- */
+@media (max-width: 760px) {
+  .pr-board { flex-direction: column; overflow-x: visible; }
+  .pr-coluna { flex: 1 1 auto; min-width: 0; max-width: 100%; max-height: none; }
+  .pr-coluna-corpo { max-height: none; }
+  .pr-filtros select, .pr-filtros input { flex: 1 1 100%; }
+  .pr-clientes { grid-template-columns: 1fr; }
+  .pr-lista-cli { max-height: none; }
+  .pr-linha-2 { grid-template-columns: 1fr; }
+  .pr-drawer { padding: 18px 16px 40px; }
+  .pr-modal { padding: 18px 16px; }
+  .pr-dl { grid-template-columns: 1fr; gap: 2px 0; }
+  .pr-dl dt { margin-top: 8px; font-size: 12px; }
+}
